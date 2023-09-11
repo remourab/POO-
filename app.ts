@@ -51,9 +51,6 @@ export class App {
         if (!user) {
             throw new Error('User not found.')
         }
-        const bikeRents = this.rents.filter(rent =>
-            rent.bike.id === bikeId && !rent.dateReturned
-        )
         const newRent = Rent.create(bikeRents, bike, user, startDate, endDate)
         this.rents.push(newRent)
     }
