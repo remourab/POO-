@@ -1,4 +1,4 @@
-// Renata Moura Barreto - 163983
+//Renata Moura Barreto
 
 import { Bike } from "./bike";
 import { Rent } from "./rent";
@@ -42,7 +42,7 @@ export class App {
         throw new Error('User does not exist.')
     }
     
-    rentBike(bikeId: string, userEmail: string, startDate: Date, endDate: Date): void {
+    rentBike(bikeId: string, userEmail: string, verifica: boolean): void {
         const bike = this.bikes.find(bike => bike.id === bikeId)
         if (!bike) {
             throw new Error('Bike not found.')
@@ -51,8 +51,7 @@ export class App {
         if (!user) {
             throw new Error('User not found.')
         }
-        const newRent = Rent.create(bikeRents, bike, user, startDate, endDate)
-        this.rents.push(newRent)
+        const verify = this.bikes.find(bike => bike.disponivel === true)
     }
 
     returnBike(bikeId: string, userEmail: string) {
