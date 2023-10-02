@@ -131,7 +131,7 @@ describe('App', () => {
 
     it ('should throw rent not found error when trying to return a unregistered rent', async () => {
       const app = new App(userRepo, bikeRepo, rentRepo)
-      await expect(app.returnBike('1989', 'line@mail.com'))
+      await expect(app.returnBike('1989', 'usar@mail.com'))
           .rejects.toThrow(RentNotFoundError)
   })
 
